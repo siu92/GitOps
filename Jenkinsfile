@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
 
@@ -8,11 +7,10 @@ pipeline {
                 git url: 'https://github.com/siu92/GitOps.git', branch: 'main'
             }
         }
-        stage('k8s deploy'){
+        stage('k8s deploy') {
             steps {
                 sh 'kubectl apply -f deployment.yaml'
             }
         }
     }
-}
 }
