@@ -9,10 +9,7 @@ pipeline {
         }
         stage('k8s deploy') {
             steps {
-                kubernetesDeploy(
-                    kubeconfigId: 'kubeconfig',
-                    configs: 'deployment.yaml'
-                )
+                sh '/var/jenkins_home/kubectl apply -f deployment.yaml'
             }
         }
     }
